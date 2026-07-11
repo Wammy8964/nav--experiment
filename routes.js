@@ -46,19 +46,4 @@ window.routeSteps = [
     },
     triggerRadius: 18,
   },
-  {
-    id: "step-3",
-    title: "Step 3",
-    mapImage: "./assets/map_step_3.png",
-    simpleMapImage: "./assets/turn_step_3.png",
-    arrow: "↰",
-    mainText: "左方向へ進む",
-    subText: "目的地入口に向かって左方向へ進んでください。",
-    remainingDistance: "約 60 m",
-    target: {
-      lat: 35.872282258597565, 
-      lng: 139.76772,
-    },
-    triggerRadius: 139.64575961597745,
-  },
 ];
