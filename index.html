@@ -37,9 +37,10 @@
               </div>
               <div class="map-guidance">
                 <p class="guidance-label">次の案内</p>
-                <h2 id="mapInstructionText">-</h2>
-                <div class="distance-row">
-                  <span>残り距離</span>
+                <h2 id="mapInstructionTitle">-</h2>
+                <p id="mapInstructionSubText">-</p>
+                <div class="distance-row" id="mapDistanceRow">
+                  <span id="mapDistanceLabel">残り距離</span>
                   <strong id="mapRemainingDistance">-</strong>
                 </div>
               </div>
@@ -61,8 +62,8 @@
                   <img id="arrowSimpleMapImage" src="./assets/turn_step_1.png" alt="現在地周辺の簡易地図" />
                 </div>
               </div>
-              <div class="distance-row arrow-distance">
-                <span>目的地まで</span>
+              <div class="distance-row arrow-distance" id="arrowDistanceRow">
+                <span id="arrowDistanceLabel">目的地まで</span>
                 <strong id="arrowRemainingDistance">-</strong>
               </div>
             </div>
@@ -129,6 +130,10 @@
             <dd id="panelDistance">-</dd>
           </div>
           <div>
+            <dt>distanceToConfirmation</dt>
+            <dd id="panelConfirmationDistance">-</dd>
+          </div>
+          <div>
             <dt>log count</dt>
             <dd id="panelLogCount">0</dd>
           </div>
@@ -140,6 +145,94 @@
           <button class="panel-button" id="manualRestartButton" type="button">再開始</button>
           <button class="panel-button danger" id="manualFinishButton" type="button">終了</button>
           <button class="panel-button full" id="panelSaveLogButton" type="button">ログ保存</button>
+        </div>
+      </aside>
+
+      <aside class="debug-panel is-hidden" id="debugPanel" aria-hidden="true">
+        <div class="debug-header">
+          <p class="debug-eyebrow">Debug</p>
+          <strong>Navigation State</strong>
+        </div>
+        <dl class="debug-metrics">
+          <div>
+            <dt>routeId</dt>
+            <dd id="debugRouteId">-</dd>
+          </div>
+          <div>
+            <dt>currentStepIndex</dt>
+            <dd id="debugCurrentStepIndex">-</dd>
+          </div>
+          <div>
+            <dt>stepId</dt>
+            <dd id="debugStepId">-</dd>
+          </div>
+          <div>
+            <dt>action</dt>
+            <dd id="debugAction">-</dd>
+          </div>
+          <div>
+            <dt>phase</dt>
+            <dd id="debugPhase">-</dd>
+          </div>
+          <div>
+            <dt>GPS latitude</dt>
+            <dd id="debugLatitude">-</dd>
+          </div>
+          <div>
+            <dt>GPS longitude</dt>
+            <dd id="debugLongitude">-</dd>
+          </div>
+          <div>
+            <dt>GPS accuracy</dt>
+            <dd id="debugAccuracy">-</dd>
+          </div>
+          <div>
+            <dt>distanceToDecision</dt>
+            <dd id="debugDistanceToDecision">-</dd>
+          </div>
+          <div>
+            <dt>distanceToConfirmation</dt>
+            <dd id="debugDistanceToConfirmation">-</dd>
+          </div>
+          <div>
+            <dt>confirmationHitCount</dt>
+            <dd id="debugConfirmationHitCount">0</dd>
+          </div>
+          <div>
+            <dt>requiredHitCount</dt>
+            <dd id="debugRequiredHitCount">2</dd>
+          </div>
+          <div>
+            <dt>cooldownRemaining</dt>
+            <dd id="debugCooldownRemaining">0 ms</dd>
+          </div>
+          <div>
+            <dt>lastEvent</dt>
+            <dd id="debugLastEvent">-</dd>
+          </div>
+        </dl>
+
+        <div class="mock-gps-controls is-hidden" id="mockGpsControls" aria-label="Mock GPS controls">
+          <p class="mock-gps-title">Mock GPS</p>
+          <div class="mock-gps-grid">
+            <button type="button" data-mock-gps="start">设置到起点</button>
+            <button type="button" data-mock-gps="near-turn-1">接近第1拐点</button>
+            <button type="button" data-mock-gps="decision-1">到达第1拐点</button>
+            <button type="button" data-mock-gps="confirmation-1">进入第1确认点</button>
+            <button type="button" data-mock-gps="near-turn-2">接近第2拐点</button>
+            <button type="button" data-mock-gps="decision-2">到达第2拐点</button>
+            <button type="button" data-mock-gps="confirmation-2">进入第2确认点</button>
+            <button type="button" data-mock-gps="near-turn-3">接近第3拐点</button>
+            <button type="button" data-mock-gps="decision-3">到达第3拐点</button>
+            <button type="button" data-mock-gps="confirmation-3">进入第3确认点</button>
+            <button type="button" data-mock-gps="near-destination">接近终点</button>
+            <button type="button" data-mock-gps="destination">到达终点</button>
+            <button type="button" data-mock-gps="poor-accuracy">模拟GPS精度差</button>
+            <button type="button" data-mock-gps="wrong-direction">模拟错误方向位置</button>
+            <button type="button" data-mock-gps="wrong-after-turn-1">第1拐点后继续向错误方向行走</button>
+            <button type="button" data-mock-gps="wrong-after-turn-2">第2拐点后未右转</button>
+            <button type="button" data-mock-gps="wrong-after-turn-3">第3拐点后未左转</button>
+          </div>
         </div>
       </aside>
     </div>

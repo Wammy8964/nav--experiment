@@ -266,6 +266,13 @@ body[data-ui="arrow"] .map-mode {
   font-weight: 850;
 }
 
+.map-guidance p:last-of-type {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
 .arrow-card {
   display: flex;
   flex-direction: column;
@@ -344,6 +351,17 @@ body[data-ui="arrow"] .map-mode {
   color: var(--navy-900);
   font-size: 1.25rem;
   font-weight: 900;
+}
+
+.distance-row.is-message {
+  align-items: flex-start;
+}
+
+.distance-row.is-message strong {
+  max-width: 72%;
+  font-size: 0.96rem;
+  line-height: 1.35;
+  text-align: right;
 }
 
 .arrow-distance {
@@ -487,6 +505,120 @@ body[data-ui="arrow"] .map-mode {
   background: var(--blue-500);
 }
 
+.debug-panel {
+  position: fixed;
+  z-index: 18;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 430px);
+  max-height: 58dvh;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  overflow: auto;
+  background: rgba(8, 24, 39, 0.94);
+  color: #e9f1fb;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 -16px 34px rgba(8, 24, 39, 0.28);
+  transform: translateX(-50%);
+}
+
+.debug-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.debug-eyebrow {
+  margin: 0;
+  color: #8ec5ff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.debug-header strong {
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.debug-metrics {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+.debug-metrics div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 156px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.debug-metrics dt,
+.debug-metrics dd {
+  min-width: 0;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.debug-metrics dt {
+  color: rgba(233, 241, 251, 0.62);
+}
+
+.debug-metrics dd {
+  color: #ffffff;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.mock-gps-controls {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mock-gps-title {
+  margin: 0 0 8px;
+  color: #8ec5ff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.mock-gps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.mock-gps-grid button {
+  min-height: 36px;
+  padding: 7px 8px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.mock-gps-grid button:active {
+  transform: translateY(1px);
+}
+
 @media (max-width: 360px) {
   .app-title,
   .result-card h1 {
@@ -512,6 +644,10 @@ body[data-ui="arrow"] .map-mode {
 
   .panel-metrics div {
     grid-template-columns: 108px minmax(0, 1fr);
+  }
+
+  .debug-metrics div {
+    grid-template-columns: 134px minmax(0, 1fr);
   }
 }
 
